@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
+import { fetchFromSwapi } from './services/starshipService'
 import StarshipSearch from './components/StarshipSearch' 
 import StarshipList from './components/StarshipList'
-import { fetchFromSwapi } from './services/starshipService'
 
 function App() {
     
