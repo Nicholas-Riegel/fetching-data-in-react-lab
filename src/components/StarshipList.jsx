@@ -2,11 +2,14 @@ import StarshipCard from './StarshipCard'
 
 function StarshipList({starships}) {
     return (
-        <ul>
-          {starships.map((starship, i)=>(
-            <StarshipCard key={i} {...{starship}}/>
-          ))}
-        </ul>
+        <section>
+          <p>Number of results: {starships.length}</p>
+          <ul>
+            {starships.map((starship, i)=>(
+              <StarshipCard key={i} {...{starship}}/>
+            ))}
+          </ul>
+        </section>
       )
 }
 

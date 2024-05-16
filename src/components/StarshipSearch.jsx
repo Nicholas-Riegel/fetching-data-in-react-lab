@@ -18,7 +18,6 @@ function StarshipSearch({getData}) {
                 <input 
                     type="text"
                     id='query'
-                    name='query'
                     onChange={(e)=>setQuery(e.target.value)}
                     value={query} />
                 <button type='submit'>Submit</button>
