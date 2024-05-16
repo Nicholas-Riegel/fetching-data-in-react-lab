@@ -1,34 +1,26 @@
-import { useState, useEffect } from 'react'
-import { fetchFromSwapi } from './services/starshipService'
+import { useState} from 'react'
 import './App.css'
-import StarshipSearch from './components/StarshipSearch' 
-import StarshipList from './components/StarshipList'
+import Nav from './components/nav'
+import StarshipPage from './components/Starship/StarshipPage'
+import HomePage from './components/HomePage'
+import PeoplePage from './components/People/PeoplePage'
 
 function App() {
     
-    const [starships, setStarships] = useState([])
-    const [loading, setLoading] = useState(false)
+    const [page, setPage] = useState('home')
 
-    const getData = async (query) => {
-      setLoading(true)
-      const data = await fetchFromSwapi(query)
-      setStarships(data.results)
-      setLoading(false)
-    }      
-    
-    useEffect(()=>{
-      getData()
-    }, [])
+    const handleNavClick = (page) => {
+      setPage(page)
+    }
 
     return (
       <>
+        <Nav {...{handleNavClick}}/>
         <h1>Star Wars API</h1>
-        <StarshipSearch {...{getData}}/>
-        <h2>Starships</h2>
-        {loading 
-          ? <h2>Loading...</h2>
-          : <StarshipList {...{starships}}/>
-        }
+        {page === 'home' && <HomePage />}
+        {page === 'starships' && <StarshipPage />}
+        {page === 'people' && <PeoplePage />}
+        
       </>
     )
 }

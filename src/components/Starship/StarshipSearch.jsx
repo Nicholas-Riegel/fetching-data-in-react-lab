@@ -12,9 +12,8 @@ function StarshipSearch({getData}) {
 
     return (
         <>
-            <h1>Search</h1>
+            <h1>Search Starships</h1>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="query">Search</label>
                 <input 
                     type="text"
                     id='query'

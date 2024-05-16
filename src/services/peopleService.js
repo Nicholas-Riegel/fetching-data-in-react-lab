@@ -1,12 +1,12 @@
-const BASE_URL = `https://swapi.dev/api/starships/`;
+const BASE_URL = `https://swapi.dev/api/people/`;
 
-const fetchStarships = async (starship) => {
+const fetchPeople = async (person) => {
 
     let res = null;
 
     try {
-        if (starship){
-            const queryString = `?search=${starship}`;
+        if (person){
+            const queryString = `?search=${person}`;
             res = await fetch(BASE_URL + queryString);
         } else {
             res = await fetch(BASE_URL);
@@ -18,4 +18,4 @@ const fetchStarships = async (starship) => {
     }
 };
 
-export { fetchStarships };
+export { fetchPeople };
